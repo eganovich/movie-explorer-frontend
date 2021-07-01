@@ -1,0 +1,36 @@
+.register {
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    place-items: center;
+    min-height: 100vh;
+    background-color: #fff;
+  }
+  
+  .register__container {
+    padding-top: 56px;
+  }
+  
+  .register__form {
+    margin-top: 40px;
+  }
+  
+  .register__redirect {
+    margin: 0;
+  }
+  
+  @media screen and (max-width: 449px) {
+    .register {
+      justify-content: space-between;
+      min-height: 780px;
+      padding: 0 30px 30px;
+    }
+  
+    .register__redirect {
+      font-size: 12px;
+    }
+  
+    .redirect__link {
+      font-size: 12px;
+    }
+  }

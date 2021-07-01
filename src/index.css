@@ -1,0 +1,21 @@
+@import url('../src/vendor/fonts/fonts.css');
+
+*
+{
+    font-family: 'Inter', Arial, sans-serif;
+    font-weight: 400;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+    max-width: 1600px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

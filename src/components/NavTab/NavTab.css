@@ -1,0 +1,27 @@
+.nav-tab{
+    min-height: 66px;    
+    background-color:#F5F5F5
+}
+
+.nav-tab__link-list{
+    list-style-type: none;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    padding-top: 24px;
+}
+.nav-tab__link{
+    font-size: 13px;
+    text-decoration: underline;
+    margin-right: 40px;
+    font-weight: 500;
+    color: #000;
+}
+
+.nav-tab__link:last-of-type{
+    margin-right: 0px;
+}
+
+.nav-tab__link:hover {
+    opacity: .5;
+  }

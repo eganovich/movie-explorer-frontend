@@ -1,0 +1,33 @@
+.header {
+    display: flex;
+    align-items: center;
+    height: 74px;
+    padding: 0 70px;
+  }
+  
+  .header_place_main {
+    background-color: #dddee3;
+  }
+  
+  .header_place_profile {
+    background-color: #fff;
+  }
+  
+  .header__menu-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  
+@media screen and (max-width: 799px) {
+  .header {
+    padding: 0 30px;
+  }
+}
+
+@media screen and (max-width: 399px) {
+  .header {
+    padding: 0 14px;
+  }
+}
