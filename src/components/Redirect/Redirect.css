@@ -1,0 +1,15 @@
+.redirect {
+    line-height: initial;
+    text-align: center;
+    color: #a0a0a0;
+  }
+  
+  .redirect__link {
+    color: #3456f3;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .redirect__link:hover {
+    text-decoration: underline;
+  }

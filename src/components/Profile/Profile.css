@@ -1,0 +1,57 @@
+.profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    place-items: center;
+    flex-grow: 1;
+    background-color: #fff;    ;
+    min-height: 100vh;
+  }
+  
+  .profile__buttons {
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    place-items: center;
+  }
+  
+  .profile__button {
+    display: block;
+    width: 150px;
+    padding: 0;
+    border: none;
+    margin: 0 0 16px 0;
+    font-size: 13px;
+    line-height: initial;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  
+  .profile__button:last-of-type {
+    margin-bottom: 0;
+  }
+  
+  .profile__button:hover {
+    text-decoration: underline;
+  }
+  
+  .profile__button:disabled {
+    text-decoration: none;
+    cursor: not-allowed;
+  }
+  
+  .profile__button_type_signout {
+    font-weight: 500;
+    color: #ee3465;
+  }
+  
+  @media screen and (max-width: 449px) {
+    .profile {
+      min-height: 706px;
+    }
+  
+    .profile__buttons {
+      padding: 0 30px;
+      margin: auto 0 40px;
+    }
+  }

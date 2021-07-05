@@ -1,0 +1,146 @@
+.about {
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    min-height: 608px;
+    padding: 0px 70px;
+  }
+  
+  .about__title {
+    margin: 0;
+    padding-bottom: 22px;
+    font-size: 22px;
+    border-bottom: 1px solid #000;
+  }
+    
+  .about__texts {
+    display: flex;
+    gap: 30px;
+  }
+  
+  .about__text {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  .about__text-title {
+    margin: 70px 0 20px 0;
+    font-size: 20px;
+    line-height: initial;
+  }
+  
+  .about__chart {
+    display: grid;
+    grid-template-columns: calc(100%/5) 1fr;
+    place-content: center;
+    min-height: 72px;
+    margin-top: 110px;
+  }
+  
+  .about__chart-element {
+    display: flex;
+    place-content: center;
+    place-items: center;
+    margin: 0;
+    min-height: 36px;
+    line-height: initial;
+  }
+  
+  .about__chart-element_type_backend {
+    color: #fff;
+    background-color: #3456f3;
+  }
+  
+  .about__chart-element_type_frontend {
+    background-color: #f2f2f2;
+  }
+  
+  .about__chart-caption {
+    display: flex;
+    place-content: center;
+    place-items: center;
+    margin: 0;
+    min-height: 36px;
+    line-height: 17px;
+    font-weight: 500;
+    color: #a0a0a0;
+  }
+
+  @media screen and (max-width: 799px) {
+    .about {
+      min-height: 585px;
+      padding: 90px 50px 85px;
+    }
+  
+    .about__text-title {
+      margin-bottom: 22px;
+    }
+  
+    .about__text {
+      font-size: 12px;
+      line-height: 18px;
+    }
+  
+    .about__chart {
+      margin-top: 93px;
+    }
+  
+    .about__chart-caption {
+      font-weight: 400;
+    }
+  }
+  
+  @media screen and (max-width: 499px) {
+    .about__chart {
+      grid-template-columns: 100px 184px;
+    }
+  
+    .about__chart-element {
+      font-size: 11px;
+    }
+  
+    .about__chart-element_type_backend {
+      width: 100px;
+    }
+    
+    .about__chart-element_type_frontend {
+      width: 184px;
+    }
+  
+    .about__chart-caption {
+      font-size: 11px;
+      font-weight: 400;
+    }
+  }
+  
+  @media screen and (max-width: 399px) {
+    .about {
+      min-height: 631px;
+      padding: 70px 18px 58px;
+      background-color: #fafafa;
+    }
+  
+    .about__title::after {
+      margin: 28px 0 60px 0;
+    }
+  
+    .about__texts {
+      flex-direction: column;
+      gap: 56px;
+      margin-bottom: 60px;
+    }
+  
+    .about__text-title {
+      margin-bottom: 16px;
+      font-size: 18px;
+    }
+  
+    .about__text {
+      font-size: 11px;
+      line-height: 16px;
+    }
+  
+    .about__chart {
+      margin-top: 0;
+    }
+  }

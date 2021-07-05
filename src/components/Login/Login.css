@@ -1,0 +1,36 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    place-items: center;
+    min-height: 100vh;
+    background-color: #fff;
+  }
+  
+  .login__container {
+    padding-top: 56px;
+  }
+  
+  .login__form {
+    margin-top: 40px;
+  }
+  
+  .login__redirect {
+    margin: 0;
+  }
+  
+  @media screen and (max-width: 449px) {
+    .login {
+      justify-content: space-between;
+      min-height: 780px;
+      padding: 0 30px 30px;
+    }
+  
+    .login__redirect {
+      font-size: 12px;
+    }
+  
+    .redirect__link {
+      font-size: 12px;
+    }
+  }
