@@ -62,6 +62,7 @@ function SearchForm({
   return(
     <section className="search">
       <form className="search__form" noValidate onSubmit={handleSearch}>
+        <span className={searchErrorStyle}>Нужно ввести ключевое слово</span>
         <div className="search__input-wrapper">
           <input
             className="search__input"

@@ -148,6 +148,7 @@ function App() {
     return mainApi.getSavedMovies(localStorage.getItem("jwt"))
       .then(res => {
         setSavedMovies(res);
+        console.log(savedMovies);
         return res;
       })
       .catch(err => openModal(getErrorMessage(err)));
@@ -215,6 +216,7 @@ function App() {
     if (movie.dbId) {
       dbId = movie.dbId;
       movieId = movie.movieId;
+      console.log(dbId, movieId);
     } else {
       const movieToDelete = savedMovies.find(item => item.movieId === movie.movieId);
 
@@ -345,9 +347,10 @@ function App() {
           menuProps={menuProps}
           {...savedMoviesProps}
         />
-        <Route path="/">
-          <NotFound />
-        </Route>
+        <ProtectedRoute path="/" 
+        component={NotFound}
+        loggedIn={loggedIn}
+        />
       </Switch>
       <InfoModal state={modalState} onClose={closeModal} />
       <MovieModal
