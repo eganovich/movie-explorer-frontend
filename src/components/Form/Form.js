@@ -2,15 +2,23 @@ import './Form.css';
 
 function Form({
   place,
-  children
+  children,
+  formValidityState,
+  onFormValidityChange,
+  onSubmit,
 }) {
   const title = place === 'login' ? 'Рады видеть!' : 'Добро пожаловать!';
   const submitText = place === 'login' ? 'Войти' : 'Зарегистрироваться';
 
+  function handleChange(evt) {
+    onFormValidityChange(evt.currentTarget.checkValidity());
+  }
 
   return(
     <form
       className="form"
+      onChange={handleChange}
+      onSubmit={onSubmit}
       noValidate
     >
       <h1 className="form__title">{title}</h1>
@@ -20,6 +28,7 @@ function Form({
       <button
         className="form__submit"
         type="submit"
+        disabled={!formValidityState}
       >
         {submitText}
       </button>

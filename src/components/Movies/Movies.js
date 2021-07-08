@@ -8,14 +8,22 @@ import Preloader from '../Preloader/Preloader.js';
 import MoviesCardList from '../MoviesCardList/MoviesCardList.js';
 import Footer from '../Footer/Footer.js';
 
-import {movies} from '../../utils/constants';
 
 function Movies({
   loggedIn,
   menuProps,
+  moviesToShow,
+  moviesToMap,
+  moviesToAdd,
+  moviesNotFound,
+  onSearchForMovies,
+  onGetMoreMovies,
+  onLike,
+  onDislike,
+  onOpenMovieModal,
+  onSetCurrentMovie,
 }) {
   const [isLoading, setIsLoading] = React.useState(false);
-  const moviesToShow = movies;
 
   return(
     <>
@@ -26,6 +34,8 @@ function Movies({
       <section className="movies">
         <SearchForm
           place="movies"
+          onSearch={onSearchForMovies}
+          setIsLoading={setIsLoading}
         />
         {isLoading && <Preloader />}
         {
@@ -33,6 +43,14 @@ function Movies({
           <MoviesCardList
             place="movies"
             moviesToShow={moviesToShow}
+            moviesToMap={moviesToMap}
+            moviesToAdd={moviesToAdd}
+            notFound={moviesNotFound}
+            onGetMoreMovies={onGetMoreMovies}
+            onLike={onLike}
+            onDislike={onDislike}
+            onOpenMovieModal={onOpenMovieModal}
+            onSetCurrentMovie={onSetCurrentMovie}
             />
         }
       </section>

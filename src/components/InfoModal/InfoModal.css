@@ -1,0 +1,137 @@
+.modal {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 200px;
+    padding: 20px;
+    border: 1px solid #ee3465;
+    border-radius: 5px;
+    background-color: #fafafa;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility .3s, opacity .3s linear;
+  }
+  
+  .modal_hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
+  
+  .modal_success {
+    border-color: green;
+  }
+  
+  .modal__close {
+    position: absolute;
+    top: -15px;
+    left: 285px;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    background-image: url('../../images/close-modal.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+  }
+  
+  .modal__close_success {
+    background-image: url('../../images/close-modal-success.svg');
+  }
+  
+  .modal__title {
+    margin: 0;
+    font-size: 20px;
+    line-height: initial;
+    color: #ee3465;
+  }
+  
+  .modal__title_success {
+    color: green;
+  }
+  
+  .modal__text {
+    margin: 10px 0 0 0;
+  }
+  
+  .modal__advice {
+    margin: auto 0 0;
+  }
+  
+  .modal__refresh {
+    padding: 0;
+    border: none;
+    margin: 0;
+    color: #ee3465;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  
+  .modal__refresh:hover {
+    text-decoration: underline;
+  }
+  
+  @media screen and (max-width: 799px) {
+    .modal {
+      width: 400px;
+      height: 300px;
+      padding: 40px 30px 30px;
+    }
+  
+    .modal__close {
+      top: -25px;
+      left: 375px;
+      width: 50px;
+      height: 50px;
+    }
+  
+    .modal__title {
+      font-size: 35px;
+    }
+  
+    .modal__text {
+      margin-top: 25px;
+      font-size: 20px;
+    }
+  
+    .modal__advice {
+      font-size: 20px;
+    }
+  
+    .modal__refresh {
+      font-size: 20px;
+    }
+  }
+  
+  @media screen and (max-width: 500px) {
+    .modal {
+      width: 250px;
+      height: 250px;
+      padding: 20px;
+    }
+  
+    .modal__close {
+      top: -25px;
+      left: 225px;
+    }
+  
+    .modal__title {
+      font-size: 20px;
+    }
+  
+    .modal__text {
+      margin-top: 20px;
+      font-size: 15px;
+    }
+  
+    .modal__advice {
+      font-size: 15px;
+    }
+  
+    .modal__refresh {
+      font-size: 15px;
+    }
+  }
