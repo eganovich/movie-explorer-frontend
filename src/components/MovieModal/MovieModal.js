@@ -1,6 +1,6 @@
 import './MovieModal.css';
 
-import getTrailerSource from '../../utils/getTrailerSource.js';
+import getTrailerSource from '../../utils/getTrailerLink.js';
 import parseDuration from '../../utils/parseDuration.js';
 
 function MovieModal({ state, movie, onClose }) {
@@ -15,7 +15,7 @@ function MovieModal({ state, movie, onClose }) {
         <h1 className="movie-modal__title">{movie.nameRU}</h1>
         <iframe
           className="movie-modal__frame"
-          src={movie.trailer ? getTrailerSource(movie.trailer) : ''}
+          src={movie.trailer ? getTrailerLink(movie.trailer) : ''}
           title={`Трейлер фильма ${movie.nameRU}`}
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

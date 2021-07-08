@@ -38,7 +38,7 @@
     border: none;
     border-radius: 15px;
     background-color: #fff;
-    background-image: url('../../images/svgs/close.svg');
+    background-image: url('../../images/close.svg');
     background-size: contain;
     background-repeat: no-repeat;
     cursor: pointer;

@@ -11,8 +11,8 @@ import Profile from '../Profile/Profile';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
 
-import MovieModal from '../MovieModal/MovieModal.jsx';
-import InfoModal from '../InfoModal/InfoModal.jsx';
+import MovieModal from '../MovieModal/MovieModal.js';
+import InfoModal from '../InfoModal/InfoModal.js';
 
 import moviesApi from '../../utils/MoviesApi.js';
 import mainApi from '../../utils/MainApi.js';
