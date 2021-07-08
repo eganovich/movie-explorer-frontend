@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-import Preloader from '../Preloader/Preloader.jsx';
+import Preloader from '../Preloader/Preloader.js';
 
 function ProtectedRoute({ component: Component, ...props }) {
   return(

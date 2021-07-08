@@ -8,14 +8,25 @@ import Preloader from '../Preloader/Preloader.js';
 import MoviesCardList from '../MoviesCardList/MoviesCardList.js';
 import Footer from '../Footer/Footer.js';
 
-import {savedMovies} from '../../utils/constants';
-
 function SavedMovies({
   loggedIn,
   menuProps,
+  savedMoviesToShow,
+  moviesToMap,
+  moviesToAdd,
+  savedMoviesNotFound,
+  getSavedMovies,
+  onSearchForSavedMovies,
+  onGetMoreMovies,
+  onDislike,
+  onOpenMovieModal,
+  onSetCurrentMovie,
 }) {
   const [isLoading, setIsLoading] = React.useState(false);
-  const savedMoviesToShow = savedMovies;
+
+  React.useEffect(() => {
+    getSavedMovies();
+  }, [getSavedMovies]);
 
   return(
     <>
@@ -27,6 +38,8 @@ function SavedMovies({
       <section className="saved-movies">
         <SearchForm
           place="saved"
+          onSearch={onSearchForSavedMovies}
+          setIsLoading={setIsLoading}
         />
         {isLoading && <Preloader />}
         {
@@ -34,6 +47,13 @@ function SavedMovies({
           <MoviesCardList
             place="saved"
             moviesToShow={savedMoviesToShow}
+            moviesToMap={moviesToMap}
+            moviesToAdd={moviesToAdd}
+            notFound={savedMoviesNotFound}
+            onGetMoreMovies={onGetMoreMovies}
+            onDislike={onDislike}
+            onOpenMovieModal={onOpenMovieModal}
+            onSetCurrentMovie={onSetCurrentMovie}
           />
         }
       </section>

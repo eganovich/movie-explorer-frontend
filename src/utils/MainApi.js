@@ -15,9 +15,9 @@ class MainApi {
       return fetch(`${this._baseUrl}/signup`, {
         method: 'POST',
         headers: {
+          'Accept': 'application/json',
           "Content-Type": "application/json"
-        },
-        credentials: 'include',
+        },        
         body: JSON.stringify({
           name: data.name,
           email: data.email,
@@ -42,27 +42,24 @@ class MainApi {
         .then(res => this._handleOriginalResponse(res));
     }
   
-    signOut() {
-      return fetch(`${this._baseUrl}/users/signout`, {
-        method: 'DELETE',
-        credentials: 'include',
-      })
-        .then(res => this._handleOriginalResponse(res));
-    }
-  
-    getUserInfo() {
+
+    getUserInfo(token) {
       return fetch(`${this._baseUrl}/users/me`, {
         method: 'GET',
         credentials: 'include',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
       })
         .then(res => this._handleOriginalResponse(res));
     }
   
-    patchUserInfo(data) {
+    patchUserInfo(data, token) {
       return fetch(`${this._baseUrl}/users/me`, {
         method: 'PATCH',
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          'Authorization': `Bearer ${token}`,
         },
         credentials: 'include',
         body: JSON.stringify({
@@ -73,19 +70,23 @@ class MainApi {
         .then(res => this._handleOriginalResponse(res));
     }
   
-    getSavedMovies() {
+    getSavedMovies(token) {
       return fetch(`${this._baseUrl}/movies`, {
         method: 'GET',
         credentials: 'include',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
       })
         .then(res => this._handleOriginalResponse(res));
     }
   
-    addMovie(data) {
+    addMovie(data, token) {
       return fetch(`${this._baseUrl}/movies`, {
         method: 'POST',
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          'Authorization': `Bearer ${token}`
         },
         credentials: 'include',
         body: JSON.stringify({
@@ -105,10 +106,13 @@ class MainApi {
         .then(res => this._handleOriginalResponse(res));
     }
   
-    deleteSavedMovie(id) {
+    deleteSavedMovie(id, token) {
       return fetch(`${this._baseUrl}/movies/${id}`, {
         method: 'DELETE',
         credentials: 'include',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
       })
         .then(res => this._handleOriginalResponse(res));
     }

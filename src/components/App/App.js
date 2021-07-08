@@ -10,6 +10,7 @@ import NotFound from '../NotFound/NotFound';
 import Profile from '../Profile/Profile';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute.js';
 
 import MovieModal from '../MovieModal/MovieModal.js';
 import InfoModal from '../InfoModal/InfoModal.js';
@@ -44,7 +45,7 @@ function App() {
     error: true,
     open: false,
     title: 'Внимание!',
-    message: 'Что-то случилось.',
+    message: 'Что-то пошло не так...',
   });
   const [movieModalOpen, setMovieModalOpen] = React.useState(false);
   const [currentMovie, setCurrentMovie] = React.useState({});
@@ -96,36 +97,36 @@ function App() {
 
   function signIn({ email, password }) {
     return mainApi.signIn({ email, password })
-      .then(() => {
+      .then((res) => {
         setLoggedIn(true);
         localStorage.setItem('loggedIn', 'true');
+        localStorage.setItem('jwt', res.token);
         history.push('/movies');
       })
-      .then(() => getProfileData())
+      .then(() => getProfileData(localStorage.getItem("jwt")))
       .catch(err => openModal(getErrorMessage(err)));
   }
 
-  function signOut() {
-    return mainApi.signOut()
-      .then(() => clearData())
-      .catch(err => openModal(getErrorMessage(err)));
+  function signOut(){
+    clearData();
+    history.push("/signin");
   }
 
-  function getProfileData() {
-    mainApi.getUserInfo()
+  function getProfileData(token) {
+    mainApi.getUserInfo(token)
       .then(res => setCurrentUser(res))
       .catch(err => openModal(getErrorMessage(err)));
   }
 
   function editProfile(data) {
-    return mainApi.patchUserInfo(data)
+    return mainApi.patchUserInfo(data, localStorage.getItem("jwt"))
       .then(() => openModal('Данные успешно изменены!', 'Получилось!', false))
-      .then(() => getProfileData())
+      .then(() => getProfileData(localStorage.getItem("jwt")))
       .catch(err => openModal(getErrorMessage(err)));
   }
 
   function getMovies() {
-    return Promise.all([moviesApi.getMovies(), mainApi.getSavedMovies()])
+    return Promise.all([moviesApi.getMovies(), mainApi.getSavedMovies(localStorage.getItem("jwt"))])
       .then(([movies, savedMovies]) => {
         setSavedMovies(savedMovies);
 
@@ -144,7 +145,7 @@ function App() {
   }
 
   const getSavedMovies = React.useCallback(() => {
-    return mainApi.getSavedMovies()
+    return mainApi.getSavedMovies(localStorage.getItem("jwt"))
       .then(res => {
         setSavedMovies(res);
         return res;
@@ -182,7 +183,7 @@ function App() {
   }
 
   function saveMovie(data) {
-    return mainApi.addMovie(data)
+    return mainApi.addMovie(data, localStorage.getItem("jwt"))
       .then(res => {
         return getSavedMovies()
           .then(() => {
@@ -223,7 +224,7 @@ function App() {
       }
     }
 
-    return mainApi.deleteSavedMovie(dbId)
+    return mainApi.deleteSavedMovie(dbId, localStorage.getItem("jwt"))
       .then(res => {
         getSavedMovies();
 
@@ -249,7 +250,7 @@ function App() {
 
   React.useEffect(() => {
     if (localStorage.loggedIn === 'true') {
-      mainApi.getUserInfo()
+      mainApi.getUserInfo(localStorage.getItem("jwt"))
         .then(res => {
           setCurrentUser(res);
           setLoggedIn(true);

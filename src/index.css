@@ -15,6 +15,37 @@ body {
     background-color: #fff;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.root__footer {
+  margin-top: auto;
+}
+
+.root__modal {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1;
+}
+
+.root__movie-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 464px) {
+  .root__modal {
+    bottom: 5px;
+    right: 5px;
+  }
+}
+
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

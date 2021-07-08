@@ -1,6 +1,6 @@
 import './MovieModal.css';
 
-import getTrailerSource from '../../utils/getTrailerLink.js';
+import getTrailerLink from '../../utils/getTrailerLink.js';
 import parseDuration from '../../utils/parseDuration.js';
 
 function MovieModal({ state, movie, onClose }) {
